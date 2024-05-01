@@ -1,0 +1,54 @@
+# In the respective python codes for AirNOW and Purple Air, the output pandas tables were read as CSVs
+        # The CSVs will now be read into this file, and then added to a map using the folium package
+        # It will then be exported as an html
+
+import folium
+from branca.colormap import LinearColormap
+import pandas as pd
+
+airnow_dataframe = pd.read_csv('C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/PurpleAir/AirNOW_data.csv')
+airnow_dataframe
+
+purpleair_dataframe = pd.read_csv('C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/PurpleAir/PurpleAir_data.csv')
+purpleair_dataframe
+
+### Here we need to merge the dataframes into one to plot them together
+purpleair_dataframe
+airnow_dataframe
+dataframes = [airnow_dataframe, purpleair_dataframe]
+aqsensors_df = pd.concat(dataframes)
+aqsensors_df
+
+# Create a continuous color ramp
+colormap = LinearColormap(colors=['green', 'Yellow','red', '#8F3F97', '#7E001F'], vmin= 0, vmax= 300, index = [50, 100, 150, 200,300])
+
+# Create a map centered around sensors
+worcesteraq_map = folium.Map(location=[42.269769, -71.799490], zoom_start=12)
+
+# Add markers for each sensor with continuous color based on values
+for index, row in aqsensors_df.iterrows():
+    folium.CircleMarker(location=[row["Latitude"], row["Longitude"]],
+                        radius=10,
+                        popup=f"{row['PM2.5_1hourAve']}: {row['SensorName']}: {row['TimeObserved']}: {row['DateObserved']}",
+                        color=colormap(row['PM2.5_1hourAve']),
+                        fill=True,
+                        fill_color=colormap(row['PM2.5_1hourAve']),
+                        fill_opacity=0.7).add_to(worcesteraq_map)
+# Add the colormap to the map
+worcesteraq_map.add_child(colormap)
+
+
+
+# Adding the json of Worcester Boundary as JSON
+worcesterbounds = pd.read_json("C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/Dashboard_HTML/woobounds.json")
+
+# Save the map to an HTML file or display it in Jupyter Notebook
+worcesteraq_map.save('C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/Dashboard_HTML/WorcesterAirQualityMap.html')
+
+# Add markers for each county
+#for index, row in main_df.iterrows():
+    #popup_text = f"sensor_index: {row['sensor_index']}<br>Latitude: {row['latitude']}<br>Longitude: {row['longitude']}<br>PM2.5: {row['pm2.5_atm']}"
+    #folium.Marker(location=[row["latitude"], row["longitude"]],popup=popup_text).add_to(california_map)
+
+# Save the map to an HTML file or display it in Jupyter Notebook
+#california_map.save("my_location_air_quality_map.html")
