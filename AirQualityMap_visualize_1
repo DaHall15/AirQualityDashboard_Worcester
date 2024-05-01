@@ -6,10 +6,13 @@ import folium
 from branca.colormap import LinearColormap
 import pandas as pd
 
-airnow_dataframe = pd.read_csv('C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/PurpleAir/AirNOW_data.csv')
+import os
+os.chdir("C:/Users/danie/OneDrive/Desktop/WorcesterAQ_WebMap")
+
+airnow_dataframe = pd.read_csv('PythonFiles_API/AirNOW_RSS_feedtoPython_1.py')
 airnow_dataframe
 
-purpleair_dataframe = pd.read_csv('C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/PurpleAir/PurpleAir_data.csv')
+purpleair_dataframe = pd.read_csv('PythonFiles_API/PurpleAir_data.csv')
 purpleair_dataframe
 
 ### Here we need to merge the dataframes into one to plot them together
@@ -40,10 +43,10 @@ worcesteraq_map.add_child(colormap)
 
 
 # Adding the json of Worcester Boundary as JSON
-worcesterbounds = pd.read_json("C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/Dashboard_HTML/woobounds.json")
+#worcesterbounds = pd.read_json("C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/Dashboard_HTML/woobounds.json")
 
 # Save the map to an HTML file or display it in Jupyter Notebook
-worcesteraq_map.save('C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/Dashboard_HTML/WorcesterAirQualityMap.html')
+worcesteraq_map.save('WorcesterAirQualityMap_1.html')
 
 # Add markers for each county
 #for index, row in main_df.iterrows():

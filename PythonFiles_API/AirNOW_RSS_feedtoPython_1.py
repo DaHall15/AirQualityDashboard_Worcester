@@ -89,7 +89,7 @@ airnow_order
 
 
 ## Exporting the CSV
-filepath_airnow = "C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/PurpleAir/AirNOW_data.csv"
+filepath_airnow = "/Data_CSVs/AirNOW_data_1.csv"
 airnow_order.to_csv(filepath_airnow)
 
 

@@ -208,7 +208,7 @@ purpleair_order
 
 
 ## Exporting the CSV
-filepath_purpleair = "C:/Users/danie/OneDrive/Desktop/SpatialDB_Final/WorcesterAQ_Dashboard/PurpleAir/PurpleAir_data.csv"
+filepath_purpleair = "/Data_CSVs/PurpleAir_data_1.csv"
 purpleair_order.to_csv(filepath_purpleair)
 
 
