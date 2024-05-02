@@ -69,7 +69,16 @@ pm25_df = pm25_df_1.iloc[:,1:]
 pm25_df
 
 # Dropping unnecessary columns using drop function
-pm25_norm= pm25_df.T.drop(['LocalTimeZone', 'ReportingArea','StateCode', 'CategoryNumber', 'CategoryName', 'ParameterName'], axis =1)
+pm25_norm= pm25_df.T.drop(['LocalTimeZone', 'ReportingArea','StateCode', 'CategoryNumber', 'CategoryName', 'ParameterName', 'Latitude', 'Longitude'], axis =1)
+pm25_norm
+
+# Adding the coordinates manually because the API feed is wrong
+lat = ["42.263877"]
+pm25_norm.loc[:,"Latitude"]=lat
+pm25_norm
+
+long = ["-71.794781"]
+pm25_norm.loc[:,"Longitude"]=long
 pm25_norm
 
 # Adding sensor name as column
