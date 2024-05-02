@@ -1,5 +1,5 @@
-,SensorName,PM2.5_1hourAve,DateObserved,TimeObserved,Latitude,Longitude,Sensor_Index
-0,Mass. DEP PurpleAir,42,2024-05-01,10:42AM,42.263977,-71.79484,84401
-1,Forest Grove,3,2024-05-01,10:42AM,42.3056,-71.83346,135072
-2,Batters Eye Polar Park,38,2024-05-01,10:42AM,42.257904,-71.7993,189039
-3,Batters Eye 2,41,2024-05-01,10:42AM,42.25783,-71.799644,189851
+,SensorName,Longitude,DateObserved,TimeObserved,PM2.5_1hourAve,Latitude,Sensor_Index
+0,Mass. DEP PurpleAir,-71.79484,2024-05-01,11:21AM,46,42.263977,84401
+1,Forest Grove,-71.83346,2024-05-01,11:21AM,6,42.3056,135072
+2,Batters Eye Polar Park,-71.7993,2024-05-01,11:21AM,39,42.257904,189039
+3,Batters Eye 2,-71.799644,2024-05-01,11:21AM,42,42.25783,189851

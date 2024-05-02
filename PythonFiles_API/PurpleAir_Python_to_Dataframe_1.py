@@ -1,6 +1,10 @@
 # The following base code was taken based off the following website:
 # https://medium.com/@mahyar.aboutalebi/real-time-air-quality-mapping-in-4-easy-steps-python-3e4b7a09e2d3
 
+# Setting the directory
+import os
+os.chdir("C:/Users/danie/OneDrive/Desktop/WorcesterAQ_WebMap")
+
 # Defining the Area of Interest
 import requests
 url = "https://api.purpleair.com/v1/sensors" # This is the basic url, it will be added to
@@ -38,7 +42,7 @@ df_sensors['time_stamp'] = response_dict['time_stamp']
 # Printing the output of the dataframe
 df_sensors # There are four total air quality sensors in Worcester from PurpleAir!
 # Then add convert to csv...?
-df_sensors.to_csv('sensors.csv', index=False)
+#df_sensors.to_csv('sensors.csv', index=False)
 
 ####################### CREATING A DB FOR Air Quality Readings ##########################
 # Downloading the Real-time air quality reaadings from sensors
@@ -82,8 +86,8 @@ df_aq
 # - Add sensor name
 
 # Save the dataframe in a CSV                ### EXPORTING DATAFRAME OF ACTUAL AIRQUALITY READINGS ###
-df_aq.to_csv('data.csv', index=False)
-df_aq
+#df_aq.to_csv('data.csv', index=False)
+#df_aq
 
 ################################# Joining the Dataframes ###########################################
 import json
@@ -92,11 +96,12 @@ data =  json.load(io.BytesIO(response.content))
 df_all = pd.DataFrame(data['data'], columns=data['fields'])
 
 import pandas as pd
-df1 = pd.read_csv('sensors.csv')
-df2 = pd.read_csv('data.csv')
+#df1 = pd.read_csv('sensors.csv')
+#df2 = pd.read_csv('data.csv')
 
-merged_df = pd.merge(df1, df2, on='sensor_index')
-merged_df.to_csv('sensors_data.csv', index=False)
+#merged_df = pd.merge(df1, df2, on='sensor_index')
+merged_df = pd.merge(df_aq, df_sensors, on='sensor_index')
+#merged_df.to_csv('sensors_data.csv', index=False)
 merged_df
 
 ############################# Converting PurpleAir Raw PM2.5 to AQI Measurements
@@ -208,7 +213,7 @@ purpleair_order
 
 
 ## Exporting the CSV
-filepath_purpleair = "/Data_CSVs/PurpleAir_data_1.csv"
+filepath_purpleair = "Data_CSVs/PurpleAir_data_1.csv"
 purpleair_order.to_csv(filepath_purpleair)
 
 

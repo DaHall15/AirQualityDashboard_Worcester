@@ -13,6 +13,10 @@ from requests_html import HTML # type: ignore # web-scraping library that combin
 from requests_html import HTMLSession # type: ignore
 # installed in command prompt
 
+# Importing os, then setting the directory
+import os
+os.chdir("C:/Users/danie/OneDrive/Desktop/WorcesterAQ_WebMap")
+
 # Parse the RSS feed contents
     ## Since we already have the URL provided from the AirNOW xml, we'll use that
     ## There is only one AirNOW sensor in Worcester, so we only need one URL
@@ -89,7 +93,7 @@ airnow_order
 
 
 ## Exporting the CSV
-filepath_airnow = "/Data_CSVs/AirNOW_data_1.csv"
+filepath_airnow = "Data_CSVs/AirNOW_data_1.csv"
 airnow_order.to_csv(filepath_airnow)
 
 
