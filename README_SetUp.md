@@ -21,7 +21,7 @@ Spatial Databases
 - Particulate Matter 2.5 (PM2.5) are harmful particulates in the air, not visible to the naked eye. 
 - With increasing surface air temperatures and the urban heat island effect, it is vital residents of Worcester have a user-friendly web-based dashboard to view live readings of air quality (measured by PM2.5) in their neighborhood.
 ### Purple Air Interactive Map
-<img width="600px" src="WebMap_setup\Images\purpleair_interactivemap.png" alt="workflow"></img>
+<img width="600px" src="AirQualityDashboard_Worcester\WebMap_setup\Images\purpleair_interactivemap.png" alt="workflow"></img>
 
 ### AirNOW Interactive Map 
 <img width="600px" src="WebMap_setup\Images\airnow_interactivemap.png" alt="workflow"></img>
