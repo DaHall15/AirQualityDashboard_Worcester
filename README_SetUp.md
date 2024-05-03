@@ -21,15 +21,15 @@ Spatial Databases
 - Particulate Matter 2.5 (PM2.5) are harmful particulates in the air, not visible to the naked eye. 
 - With increasing surface air temperatures and the urban heat island effect, it is vital residents of Worcester have a user-friendly web-based dashboard to view live readings of air quality (measured by PM2.5) in their neighborhood.
 ### Purple Air Interactive Map
-<img width="600px" src="AirQualityDashboard_Worcester\WebMap_setup\Images\purpleair_interactivemap.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\purpleair_interactivemap.png" alt="workflow"></img>
 
 ### AirNOW Interactive Map 
-<img width="600px" src="WebMap_setup\Images\airnow_interactivemap.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\airnow_interactivemap.png" alt="workflow"></img>
 ## Proposed Workflow
 Follow the proposed workflow in the diagram below. 
-<img width="600px" src="WebMap_setup\Images\workflow_part1.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\workflow_part1.png" alt="workflow"></img>
 
-<img width="600px" src="WebMap_setup\Images\workflow_part2.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\workflow_part2.png" alt="workflow"></img>
 
 ## PurpleAir Script to Read in Data Feed - Step 3
 Purple Air live data feed will be read into a dataframe (and eventually a csv) using the example code provided in a 'Medium' article: https://medium.com/@mahyar.aboutalebi/real-time-air-quality-mapping-in-4-easy-steps-python-3e4b7a09e2d3 
@@ -58,7 +58,7 @@ Based on the example code that was adapted for the purposes of extracting Purple
 
 # PurpleAir data frame
 - The initial PurpleAir pandas data frame output looked like the following:
-<img width="600px" src="WebMap_setup\Images\Purple_airInitial_DF.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\Purple_airInitial_DF.png" alt="workflow"></img>
 - The data frame only needs to be changed in order for it to have the same schema as the AirNOW data frame. The data is only needed to be in first normal form, which is already in, so there is no need to normalize it. This is because all the cells contain indivisible values. Each column has a unique name. The order of the columns does not impact the data's integrity and each column contains values of a single type.
 
 **Steps to making schemas the same:**
@@ -91,13 +91,13 @@ print(merged_df_norm)
 
 
 The final PurpleAir data frame looks like the following:
-<img width="600px" src="WebMap_setup\Images\Final_PurpleAir.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\Final_PurpleAir.png" alt="workflow"></img>
 
 
 
 # AirNOW data frame
 - The initial AirNOW pandas data frame output looked like the following:
-<img width="600px" src="WebMap_setup\Images\AirNOW_initial_DF.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\AirNOW_initial_DF.png" alt="workflow"></img>
 - The data frame needs to be processed in order to have the same schema as the PurpleAir dataframe.
 - The initial resulting dataframe is already in 1NF because some of the columns rely on each other (reporting area and state code). Although, these dependent columns will be dropped since they are not needed and they are not contained within the PurpleAir dataframe.
 - Besides those columns, the table only needs to be in 1NF, and no further normalization is needed.
@@ -127,7 +127,7 @@ pm25_norm
 
 - Resulting data frame looks like the following:
 
-<img width="600px" src="WebMap_setup\Images\Final_AirNOW.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\Final_AirNOW.png" alt="workflow"></img>
 
 
 ##  Web Map Creation using Leaflet in Python
@@ -171,7 +171,7 @@ worcesteraq_map.add_child(folium.GeoJson("WorcesterBoundary_JS/woobounds_1_json.
 The output leaflet map was then saved as an HTML file _WorcesterAirQualityMap_1.html_
 
 **The output map looks like the following:**
-<img width="600px" src="WebMap_setup\Images\HTML_outputfinal.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\HTML_outputfinal.png" alt="workflow"></img>
 
 
 # Map Revisions (since presenting in class)
@@ -179,7 +179,7 @@ The output leaflet map was then saved as an HTML file _WorcesterAirQualityMap_1.
 As mentioned in my presentation, the AirNOW sensor was being read in from the API with incorrect coordinates. The coordinates were fixed by dropping the original Latitude and Longitude fields read in by the API. Then, new Latitude and Longitude fields were created that contained the correct coordinates. 
 
 See code below:
-<img width="600px" src="WebMap_setup\Images\fixing_AirNOW_coordinates.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\fixing_AirNOW_coordinates.png" alt="workflow"></img>
 
 ## Fixing an issue with City Boundary JSON
 To get a json of the Worcester city boundary:
@@ -188,7 +188,7 @@ To get a json of the Worcester city boundary:
 3. Extracted Worcester shapefile using the attribute table
 4. Exported the selected Worcester boundary feature as a JSON file
 
-<img width="600px" src="WebMap_setup\Images\cityboundary_qgis.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\cityboundary_qgis.png" alt="workflow"></img>
 
 Although when I presented my map in class, the json of the city of Worcester boundary rendered, once I re-ran my script, it no longer showed up.
 
@@ -210,7 +210,7 @@ I looked into the process of developing a GitHub Page from my repo and thought i
 
 See the screenshot below:
 
-<img width="600px" src="WebMap_setup\Images\GitHub_pagesetup.png" alt="workflow"></img>
+<img width="600px" src="WebMap_SetUp\Images\GitHub_pagesetup.png" alt="workflow"></img>
 
 To view the web page follow the link here: https://dahall15.github.io/AirQualityDashboard_Worcester/WorcesterAirQualityMap_1.html
 
