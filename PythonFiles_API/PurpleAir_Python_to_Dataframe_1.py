@@ -41,8 +41,7 @@ response_dict['data']
 df_sensors['time_stamp'] = response_dict['time_stamp']
 # Printing the output of the dataframe
 df_sensors # There are four total air quality sensors in Worcester from PurpleAir!
-# Then add convert to csv...?
-#df_sensors.to_csv('sensors.csv', index=False)
+
 
 ####################### CREATING A DB FOR Air Quality Readings ##########################
 # Downloading the Real-time air quality reaadings from sensors
@@ -81,13 +80,6 @@ df_aq = pd.DataFrame(data['data'], columns=data['fields']) # puts the response i
 # Printing the dataframe
 df_aq
 
-# Normalization Steps
-# - Add timestamp
-# - Add sensor name
-
-# Save the dataframe in a CSV                ### EXPORTING DATAFRAME OF ACTUAL AIRQUALITY READINGS ###
-#df_aq.to_csv('data.csv', index=False)
-#df_aq
 
 ################################# Joining the Dataframes ###########################################
 import json

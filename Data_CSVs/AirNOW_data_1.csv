@@ -1,2 +1,2 @@
-,SensorName,PM2.5_1hourAve,DateObserved,TimeObserved,Latitude,Longitude,Sensor_Index
-1,Mass. DEP Summer Street,15,2024-05-02,17,42.263877,-71.794781,250270023
+,SensorName,Longitude,DateObserved,TimeObserved,PM2.5_1hourAve,Latitude,Sensor_Index
+1,Mass. DEP Summer Street,-71.794781,2024-05-02,17,15,42.263877,250270023

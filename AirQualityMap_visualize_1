@@ -3,7 +3,7 @@
         # It will then be exported as an html
 
 # Much of the source code was adapted from this source: Using colormaps — Folium 0.16.1.dev54+g570f2933 documentation (python-visualization.github.io)
-
+# And here as well: https://ui-libraries.github.io/Web-Mapping-Intro/#using-the-web-console-to-develop-and-debug-maps-with-live-server
 import folium
 from branca.colormap import LinearColormap
 import pandas as pd
@@ -45,11 +45,10 @@ for index, row in aqsensors_df.iterrows():
 worcesteraq_map.add_child(colormap)
 worcesteraq_map.add_child(folium.GeoJson("WorcesterBoundary_JS/woobounds_1_json.json"))
 
+# Add markers for each county
+#for index, row in aqsensors_df.iterrows():
+    #popup_text = f"sensor_index: {row['sensor_index']}<br>Latitude: {row['latitude']}<br>Longitude: {row['longitude']}<br>PM2.5: {row['pm2.5_atm']}"
+    #folium.Marker(location=[row["Latitude"], row["Longitude"]],popup=popup_text).add_to(worcesteraq_map)
+
 # Save the map to an HTML file or display it in Jupyter Notebook
 worcesteraq_map.save('WorcesterAirQualityMap_1.html')
-
-# Add markers for each county
-for index, row in aqsensors_df.iterrows():
-    popup_text = f"sensor_index: {row['sensor_index']}<br>Latitude: {row['latitude']}<br>Longitude: {row['longitude']}<br>PM2.5: {row['pm2.5_atm']}"
-    folium.Marker(location=[row["Latitude"], row["Longitude"]],popup=popup_text).add_to(worcesteraq_map)
-
