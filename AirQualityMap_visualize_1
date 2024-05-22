@@ -42,7 +42,7 @@ for index, row in aqsensors_df.iterrows():
                         fill_color=colormap(row['PM2.5_1hourAve']),
                         fill_opacity=0.7).add_to(worcesteraq_map)
 # Add the colormap to the map
-#worcesteraq_map.add_child(folium.GeoJson("WorcesterBoundary_JS/woobounds_1_json.json"))
+worcesteraq_map.add_child(folium.GeoJson("WorcesterBoundary_JS/woobounds_1_json.json"))
 worcesteraq_map.add_child(colormap)
 
 

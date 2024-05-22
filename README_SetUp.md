@@ -49,6 +49,8 @@ pip install -r all_required_packages.txt
 ```
 Packages used in this project include: folium, pandas, requests, padas-geojson, and requests-html
 
+## Need to set default interpreter 
+Need to set Python interpreter, not sure why: https://stackoverflow.com/questions/47602151/how-to-change-interpreter-in-visual-studio-code 
 
 ## CalEnviroScreen Example
 The final dashboard devleoped is aimed to emulate the basic structure of the CalEnviroScreen dashboard hosted on ArcGIS online. See the website here: https://experience.arcgis.com/experience/11d2f52282a54ceebcac7428e6184203/page/CalEnviroScreen-4_0/ 
